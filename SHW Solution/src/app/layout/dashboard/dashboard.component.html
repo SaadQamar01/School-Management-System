@@ -1,5 +1,16 @@
 <div [@routerTransition]>
+    <div *ngIf="type=='superAdmin';">
     <h2 class="text-muted">Dashboard <small>Super Admin</small></h2>
+    </div>
+    <div *ngIf="type=='admin';">
+    <h2 class="text-muted">Dashboard <small>Admin</small></h2>
+    </div>
+    <div *ngIf="type=='student';">
+    <h2 class="text-muted">Dashboard <small>Student</small></h2>
+    </div>
+    <div *ngIf="type=='employee';">
+    <h2 class="text-muted">Dashboard <small>Employee</small></h2>
+    </div>
     <!--<div class="row">
         <div class="col-md-12">
             <ngb-carousel>

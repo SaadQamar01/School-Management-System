@@ -21,9 +21,21 @@ export class HeaderComponent implements OnInit {
         var dataParse = JSON.parse(data)
         this.userData=dataParse;
         this.type = dataParse.type
-        if(this.type=="admin"){
+        if(this.type=="superAdmin"){
             this.navName="SHW Solution";
             this.userType="Super Admin"
+        }
+        else if(this.type=="admin"){
+            this.navName=dataParse.schoolName;
+            this.userType="Admin"
+        }
+        else if(this.type=="employee"){
+            this.navName=dataParse.employeeName;
+            this.userType="Employee"
+        }
+        else if(this.type=="student"){
+            this.navName=dataParse.studentName;
+            this.userType="Student"
         }
         this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {

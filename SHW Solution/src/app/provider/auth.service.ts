@@ -32,59 +32,67 @@ export class AuthService {
   }
 
   logIn(loginForm) {
-    console.log("service")
     console.log(loginForm)
-    var dataJSON=JSON.stringify(loginForm)
+    var dataJSON = JSON.stringify(loginForm)
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:8000/login', loginForm, options)
+    return this.http.post('http://localhost:8000/api/login', loginForm, options)
       .map(res => {
-      console.log(res.json())
-      if(res.json().type==="admin"){
-        this.checkUserType=res.json().type;
-        console.log(res.json().type);
-      }
-      return res.json() 
-    })
-      .catch((err)=>
-    { console.log(err.json)
-     return err.json()
-    })
-    //  .subscribe(
-    //    data=>{console.log(data);},
-    //    err =>{console.log(err);}
-    //    )
-    // return this.http.get('http://localhost:8000/getData')
-    // .map(res => {
-    //   console.log(res)
-    //   return res.json() }
-    //   )
-    // .catch((err)=>
-    // {
-    //    console.log(err)
-    //  return err.json()})
-    // .subscribe(data=>console.log(data))
-    // return this.afAuth.auth.signInWithEmailAndPassword(loginForm.email, loginForm.password)
-    // .then((data) => { 
-    //   console.log(data);
-    //   return true; 
-    //   // this.getUserProfile()
-    //  })
-    // .catch((error) => {console.log(error); return error.message;}) ;
+        console.log(res.json())
+        // if (res.json().type === "superAdmin") {
+        //   this.checkUserType = res.json().type;
+        //   console.log(res.json().type);
+        // }
+        return res.json()
+      })
+      .catch((err) => {
+        console.log(err.json)
+        return err.json()
+      })
   }
 
 
-  signup(signupForm) {
-    // return this.afAuth.auth.createUserWithEmailAndPassword(signupForm.userName, signupForm.password)
-    //   .then((data) => {
-
-
-    //     // this.userRegistration = this.db.object('/userRegistration/' + this.afAuth.auth.currentUser.uid);
-    //     // this.userRegistration.set(signupForm).then(() => this.getUserProfile());
-    //     // //this.router.navigate(['/dashboard']);
-    //   })
-    //   .catch(error => console.log("Error"));
-
+  registrationSchool(RegistrationForm) {
+    console.log(RegistrationForm)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:8000/api/schoolRegistration', RegistrationForm, options)
+      .map(res => {
+        console.log(res.json())
+        return res.json()
+      })
+      .catch((err) => {
+        console.log(err.json)
+        return err.json()
+      })
+  }
+  registrationStudent(RegistrationForm) {
+    console.log(RegistrationForm)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:8000/api/studentRegistration', RegistrationForm, options)
+      .map(res => {
+        console.log(res.json())
+        return res.json()
+      })
+      .catch((err) => {
+        console.log(err.json)
+        return err.json()
+      })
+  }
+  registrationEmployee(RegistrationForm) {
+    console.log(RegistrationForm)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:8000/api/employeeRegistration', RegistrationForm, options)
+      .map(res => {
+        console.log(res.json())
+        return res.json()
+      })
+      .catch((err) => {
+        console.log(err.json)
+        return err.json()
+      })
   }
 
 }

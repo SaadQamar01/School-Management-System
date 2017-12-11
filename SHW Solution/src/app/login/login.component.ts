@@ -16,35 +16,48 @@ import 'rxjs/add/operator/catch';
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
+    type = "superAdmin";
+    data: {};
     constructor(public fb: FormBuilder, public router: Router, private authService: AuthService) {
         this.createForm();
+        // this.router.navigate(['dashboard']);
     }
     ngOnInit() {
+
     }
 
     createForm() {
         this.loginForm = this.fb.group({
             email: ['', [Validators.required, Validators.minLength(6)]],
-            password: ['', Validators.required]
+            password: ['', Validators.required],
         })
     }
+    onChange = ($event) => {
+        console.log($event.target.defaultValue)
+        this.type = $event.target.defaultValue;
+    }
     onLoggedin() {
-        console.log(this.loginForm.value);
-        this.authService.logIn(this.loginForm.value)
-        .map(
-       data=>{console.log(data); return data },
-       err =>{console.log(err); return err}
-       ).subscribe(
-           data=>{
-            console.log(data);
-            if(data.type==="admin"){
-             this.router.navigate(['dashboard']);
-            localStorage.setItem('currentUser',JSON.stringify(data));
-            localStorage.setItem('isLoggedin', 'true');
-            }
-        },
-           err=>{alert("Email & Password Invalid");console.log(err)}
-        );
+        this.data = {
+            email: this.loginForm.value.email,
+            password: this.loginForm.value.password,
+            type: this.type,
+        }
+        console.log(this.data);
+        this.authService.logIn(this.data)
+            .map(
+            data => { console.log(data); return data },
+            err => { console.log(err); return err }
+            ).subscribe(
+            data => {
+                console.log(data);
+                // if(this.type==="superAdmin"){
+                this.router.navigate(['dashboard']);
+                localStorage.setItem('currentUser', JSON.stringify(data));
+                localStorage.setItem('isLoggedin', 'true');
+                // }
+            },
+            err => { alert("Email & Password Invalid"); console.log(err) }
+            );
         // this.router.navigate(['dashboard'])
         // localStorage.setItem('isLoggedin', 'true');
     }

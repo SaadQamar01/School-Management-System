@@ -1,72 +1,81 @@
 {{type}}
-<div *ngIf="type=='admin';then Admin else Demo"></div>
-<ng-template #Admin>
-<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-    <ul class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
-        </a>
-        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'School Registration' | translate }}
-        </a>
-        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'View Schools' | translate }}
-        </a>
-        <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Blank Page' | translate }}
-        </a>
-    </ul>
-</nav>
-</ng-template>
-
-<ng-template #Demo>
-<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-    <ul class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
-        </a>
-        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Charts' | translate }}
-        </a>
-        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Tables' | translate }}
-        </a>
-        <a [routerLink]="['/forms']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Forms' | translate }}
-        </a>
-        <a [routerLink]="['/bs-element']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-desktop"></i>&nbsp;{{ 'Boostrap Element' | translate }}
-        </a>
-        <a [routerLink]="['/grid']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-wrench"></i>&nbsp;{{ 'Boostrap Grid' | translate }}
-        </a>
-        <a [routerLink]="['/components']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-th-list"></i>&nbsp;{{ 'Component' | translate }}
-        </a>
-        <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('pages')">
-                <span><i class="fa fa-plus"></i>&nbsp; {{ 'Menu' | translate }}</span>
-            </a>
-            <li class="nested" [class.expand]="showMenu === 'pages'">
-                <ul class="submenu">
-                    <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"><span>{{ 'Submenu' | translate }}</span></a>
-                    </li>
-                </ul>
-            </li>
-        </div>
-        <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Blank Page' | translate }}
-        </a>
-        <a class="list-group-item more-themes" href="http://www.strapui.com/" >
-            {{ 'More Theme' | translate }}
-        </a>
-    </ul>
-</nav>
-</ng-template>
+<!--<div *ngIf="type=='superAdmin';then SuperAdmin else Demo"></div>-->
+<div *ngIf="type=='superAdmin';">
+	<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+		<ul class="list-group">
+			<a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+			</a>
+			<a [routerLink]="['/school-registration']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'School Registration' | translate }}
+			</a>
+			<a [routerLink]="['/view-school']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-table"></i>&nbsp;{{ 'View Schools' | translate }}
+			</a>
+		</ul>
+	</nav>
+</div>
+<div *ngIf="type=='admin';">
+	<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+		<ul class="list-group">
+			<a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+			</a>
+			<a [routerLink]="['/student-registration']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Student Registration' | translate }}
+			</a>
+			<a [routerLink]="['/employee-registration']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Employe Registration' | translate }}
+			</a>
+			<a [routerLink]="['/employees-detail']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-file-o"></i>&nbsp;{{ 'Employees Detail' | translate }}
+			</a>
+			<a [routerLink]="['/students-detail']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-file-o"></i>&nbsp;{{ 'Students Detail' | translate }}
+			</a>
+		</ul>
+	</nav>
+	<!--</ng-template>-->
+</div>
+<div *ngIf="type=='employee';">
+	<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+		<ul class="list-group">
+			<a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+			</a>
+			<a [routerLink]="['/employee-attendence']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Employee Attendence' | translate }}
+			</a>
+			<a [routerLink]="['/employee-salary']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Employee Salary' | translate }}
+			</a>
+			<a [routerLink]="['/emp-receipt-voucher']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-file-o"></i>&nbsp;{{ 'Receipt Voucher' | translate }}
+			</a>
+			<a [routerLink]="['/employee-query']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-file-o"></i>&nbsp;{{ 'Employee Query' | translate }}
+			</a>
+		</ul>
+	</nav>
+</div>
+<div *ngIf="type=='student';">
+	<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+		<ul class="list-group">
+			<a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+			</a>
+			<a [routerLink]="['/student-attendence']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Student Attendence' | translate }}
+			</a>
+			<a [routerLink]="['/student-fee']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Student Fee' | translate }}
+			</a>
+			<a [routerLink]="['/student-receipt-voucher']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-file-o"></i>&nbsp;{{ 'Student Voucher' | translate }}
+			</a>
+			<a [routerLink]="['/student-query']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+				<i class="fa fa-file-o"></i>&nbsp;{{ 'Student Query' | translate }}
+			</a>
+		</ul>
+	</nav>
+</div>

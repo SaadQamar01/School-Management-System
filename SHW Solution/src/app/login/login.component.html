@@ -1,23 +1,46 @@
 <div class="login-page" [@routerTransition]>
-    <div class="row">
-        <div class="col-md-4 push-md-4">
-            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
-            <h4>School Management System</h4>
-            <form role="form" [formGroup]="loginForm">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input class="form-control input-underline input-lg"type="email" formControlName="email" placeholder="Email">
-                    </div>
+	<div class="row">
+		<div class="col-md-4 push-md-4">
+			<img src="assets/images/logo.png" width="150px" class="user-avatar" />
+			<h4>School Management System</h4>
+			<form role="form" [formGroup]="loginForm">
+				<div class="form-content">
+					<div class="form-group">
+						<input class="form-control input-underline input-lg" type="email" formControlName="email" placeholder="Email">
+					</div>
 
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" formControlName="password" placeholder="Password">
-                    </div>
-                </div>
-                <button class="btn rounded-btn" [disabled]="loginForm.status == 'INVALID'" (click)="onLoggedin()">Login</button>
-                <!--<a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="Loggedin()"> Log in </a>-->
-                &nbsp;
-                <!--<a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>-->
-            </form>
-        </div>
-    </div>
+					<div class="form-group">
+						<input type="password" class="form-control input-underline input-lg" formControlName="password" placeholder="Password">
+					</div>
+					<!--<label>Type</label>-->
+					<div class="row-sm-12" (change)="onChange($event)">
+						<span class="radio row-sm-3">
+							<label>
+                            <input type="radio" name="optionsRadios" value="superAdmin" checked="">Super Admin
+                        </label>
+						</span>
+						<span class="radio row-sm-3">
+							<label>
+                            <input type="radio" name="optionsRadios" value="admin"> Admin
+                        </label>
+						</span>
+						<span class="radio row-sm-3">
+							<label>
+                            <input type="radio" name="optionsRadios"  value="student"> Student
+                        </label>
+						</span>
+						<span class="radio row-sm-3">
+							<label>
+                            <input type="radio" name="optionsRadios" value="employee"> Employee
+                        </label>
+						</span>
+					</div>
+				</div>
+				<button class="btn rounded-btn" [disabled]="loginForm.status == 'INVALID'" (click)="onLoggedin()">Login</button>
+				<!--<a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="Loggedin()"> Log in </a>-->
+				&nbsp;
+				<!--<a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>-->
+			</form>
+		</div>
+	</div>
 </div>

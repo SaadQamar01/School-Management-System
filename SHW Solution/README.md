@@ -1,12 +1,32 @@
-We have don login authentication and super admin dashboard pages, 
-super admin can login and go their dashboard,
-Super admin dashboard is not completed yet we are working on it.
+#School Management System:
+We have Login page, login page has 4 radio buttons if you are super admin so you must select super admin radio button
+otherwise it will generate an error all login user apply same rule. We have four Dashboard panels which is
+1) Super admin panel:
+Modules:Super Admin can Add school,view schools and delete School
+2) Admin panel:
+Modules: School Admin has 10 modules
+-it can registor employe and student
+-it can view details employee and student
+-it can submit attendance and view attendance to search different filters
+-it can collect fees and view fees records to search different filters
+-it can pay employee and view payment to search different filters
+3) Employee panel:Modules: Employe panel has 4 modules
+-it can check own attendance record to search different filters
+-it can check own payment records to search different filters
+-it can see own profile
+4) Student panel:
+Modules: Student panel has 4 modules
+-it can check own fees records to search different filters
+-it can see own profile
+
+
 Super admin email: admin@admin.com
 Super admin password: admin123
+
 using technologies/tools:
 1) Angular 4
 2) Bootsrap 4
-3) Angular Material
+3) Custom CSS3
 
 # SchoolManagementSystem
 

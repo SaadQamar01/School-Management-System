@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+// import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-header',
@@ -14,7 +14,8 @@ export class HeaderComponent implements OnInit {
     userType;
     type;
     userData;
-    constructor(private translate: TranslateService, public router: Router) {
+    // private translate: TranslateService,
+    constructor( public router: Router) {
         console.log(localStorage.getItem('currentUser'));
         var data = localStorage.getItem('currentUser')
         console.log(JSON.parse(data));
@@ -66,7 +67,7 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('currentUser');
     }
 
-    changeLang(language: string) {
-        this.translate.use(language);
-    }
+    // changeLang(language: string) {
+    //     this.translate.use(language);
+    // }
 }

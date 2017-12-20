@@ -49,12 +49,16 @@ export class LoginComponent implements OnInit {
             err => { console.log(err); return err }
             ).subscribe(
             data => {
-                console.log(data);
-                // if(this.type==="superAdmin"){
-                this.router.navigate(['dashboard']);
-                localStorage.setItem('currentUser', JSON.stringify(data));
-                localStorage.setItem('isLoggedin', 'true');
-                // }
+                if (data.length !== 0) {
+                    console.log(data[0]);
+                    // if(this.type==="superAdmin"){
+                    this.router.navigate(['dashboard']);
+                    localStorage.setItem('currentUser', JSON.stringify(data[0]));
+                    localStorage.setItem('isLoggedin', 'true');
+                    // }
+                }else{
+                    alert("Email & Password Invalid");
+                }
             },
             err => { alert("Email & Password Invalid"); console.log(err) }
             );

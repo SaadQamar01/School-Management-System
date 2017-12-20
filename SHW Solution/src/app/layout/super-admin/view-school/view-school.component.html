@@ -1,81 +1,43 @@
 <div [@routerTransition]>
-    <!--<app-page-header [heading]="'Tables'" [icon]="'fa-table'"></app-page-header>-->
-    <!--<h1>View Schools</h1>-->
-        <app-page-header [heading]="'View Schools'" [icon]="'fa-edit'"></app-page-header>
+	<!--<app-page-header [heading]="'Tables'" [icon]="'fa-table'"></app-page-header>-->
+	<!--<h1>View Schools</h1>-->
+	<app-page-header [heading]="'View Schools'" [icon]="'fa-edit'"></app-page-header>
 
-    <!--<div class="row">
-        <div class="col col-xl-6 col-lg-12">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Basic example
-                </div>
-                <div class="card-block table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header">Table head options</div>
-                <div class="card-block table-responsive">
-                    <table class="table">
-                        <thead class="thead-inverse">
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table class="table">
+			<!--<div class="card mb-3">-->
+			<div class="card mb-3">
+                <div class="card-header">Total School Register {{schoolslength}}</div>
+				<div class="card-block table-responsive">
+					<table class="table" border="1x">
+						<thead class="thead-inverse">
+							<tr>
+								<!--<th>#</th>-->
+								<th>Owner Name</th>
+								<th>School Name</th>
+								<th>Owner CNIC</th>
+								<th>Email</th>
+								<th>Location</th>
+								<th>Registration Date</th>
+								<th>School ID</th>
+								<th>Amount</th>
+								<th>Delete School</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let school of schoolsData">
+								<!--<th scope="row">1</th>-->
+								<td>{{school.ownerName}}</td>
+								<td>{{school.schoolName}}</td>
+								<td>{{school.ownerCNIC}}</td>
+								<td>{{school.email}}</td>
+								<td>{{school.location}}</td>
+								<td>{{school.registrationDate}}</td>
+								<td>{{school.schoolID}}</td>
+								<td>{{school.amount}}</td>
+								<td><button class="btn btn-default" (click)="delete(school._id)">Delete</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<!--<table class="table">
                         <thead class="thead-default">
                         <tr>
                             <th>#</th>
@@ -106,8 +68,8 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="card mb-3">
+            </div>-->
+					<!--<div class="card mb-3">
                 <div class="card-header">Bordered table</div>
                 <div class="card-block table-responsive">
                     <table class="table table-bordered">
@@ -352,6 +314,42 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>-->
-</div>
+        </div>-->
+					<!--<div class="card-header">
+                    Basic example
+                </div>
+                <div class="card-block table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>-->
+					<!--</div>-->
+				</div>

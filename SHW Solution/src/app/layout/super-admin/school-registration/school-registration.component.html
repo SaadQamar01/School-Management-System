@@ -7,16 +7,22 @@
 			<form role="form" [formGroup]="RegistrationForm">
 				<div class="form-content">
 					<div class="form-group">
-						<input class="form-control input-underline input-lg" type="schoolName" formControlName="schoolName" placeholder="School Name">
+						<input class="form-control input-underline input-lg"formControlName="schoolName" placeholder="School Name">
 					</div>
 					<div class="form-group">
-						<input class="form-control input-underline input-lg" type="ownerName" formControlName="ownerName" placeholder="Owner Name">
+						<input class="form-control input-underline input-lg" formControlName="ownerName" placeholder="Owner Name">
 					</div>
 					<div class="form-group">
-						<input class="form-control input-underline input-lg" type="registrationDate" formControlName="registrationDate" placeholder="Registration Date">
+						<input class="form-control input-underline input-lg" formControlName="ownerCNIC" placeholder="Owner CNIC">
 					</div>
 					<div class="form-group">
-						<input class="form-control input-underline input-lg" type="amount" formControlName="amount" placeholder="Amount">
+						<input class="form-control input-underline input-lg" formControlName="registrationDate" placeholder="Registration Date">
+					</div>
+					<div class="form-group">
+						<input class="form-control input-underline input-lg"  formControlName="amount" placeholder="Amount">
+					</div>
+					<div class="form-group">
+						<input class="form-control input-underline input-lg"  formControlName="location" placeholder="Location">
 					</div>
 					<div class="form-group">
 						<input class="form-control input-underline input-lg" type="schoolID" formControlName="schoolID" placeholder="School ID">

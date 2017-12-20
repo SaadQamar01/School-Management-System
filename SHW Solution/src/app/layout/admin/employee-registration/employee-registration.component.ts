@@ -15,8 +15,8 @@ import 'rxjs/add/operator/catch';
     animations: [routerTransition()]
 })
 export class EmployeeRegistrationComponent implements OnInit {
-             RegistrationForm: FormGroup;
-    constructor(public fb: FormBuilder, public router: Router, private authService: AuthService ) {
+    RegistrationForm: FormGroup;
+    constructor(public fb: FormBuilder, public router: Router, private authService: AuthService) {
         this.createForm();
         // this.router.navigate(['dashboard']);
     }
@@ -34,19 +34,24 @@ export class EmployeeRegistrationComponent implements OnInit {
     }
     ngOnInit() {
     }
-    addEmployee(){
-             console.log(this.RegistrationForm.value);
+    addEmployee() {
+        console.log(this.RegistrationForm.value);
+        var schoolDetail = localStorage.getItem('currentUser');
+        var schoolDetailParse = JSON.parse(schoolDetail);
+        this.RegistrationForm.value.schoolID = schoolDetailParse._id;
+        console.log(this.RegistrationForm.value);
         this.authService.registrationEmployee(this.RegistrationForm.value)
-        .map(
-       data=>{console.log(data); return data },
-       err =>{console.log(err); return err}
-       ).subscribe(
-           data=>{
-          alert("Registeration Successfully");
-        },
-           err=>{alert("Email & Password Invalid");console.log(err)}
-        );
-        this.router.navigate(['dashboard'])
+            .map(
+            data => { console.log(data); return data },
+            err => { console.log(err); return err }
+            ).subscribe(
+            data => {
+                alert("Registeration Successfully");
+            },
+            err => { alert("Email & Password Invalid"); console.log(err) }
+            );
+        // location.reload();
+        this.router.navigate(['employees-detail'])
         localStorage.setItem('isLoggedin', 'true');
     }
 }

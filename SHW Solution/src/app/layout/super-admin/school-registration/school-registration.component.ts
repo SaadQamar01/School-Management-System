@@ -24,8 +24,10 @@ export class SchoolRegistrationComponent implements OnInit {
         this.RegistrationForm = this.fb.group({
             schoolName: ['', [Validators.required]],
             ownerName: ['', [Validators.required]],
+            ownerCNIC: ['', [Validators.required]],
             registrationDate: ['', [Validators.required]],
             amount: ['', [Validators.required]],
+            location: ['', [Validators.required]],
             schoolID: ['', [Validators.required]],
             email: ['', [Validators.required, Validators.minLength(6)]],
             password: ['', Validators.required]
@@ -42,8 +44,9 @@ export class SchoolRegistrationComponent implements OnInit {
        ).subscribe(
            data=>{
           alert("Registeration Successfully");
+          this.router.navigate(['view-school']);
         },
-           err=>{alert("Email & Password Invalid");console.log(err)}
+           err=>{alert("Something Went Wrong");console.log(err)}
         );
         // this.router.navigate(['dashboard'])
         // localStorage.setItem('isLoggedin', 'true');

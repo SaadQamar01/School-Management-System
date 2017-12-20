@@ -19,6 +19,8 @@ Modules: Student panel has 4 modules
 -it can check own fees records to search different filters
 -it can see own profile
 
+server repository link:
+https://github.com/MuhammadHaseebKhan/Server-Side
 
 Super admin email: admin@admin.com
 Super admin password: admin123
